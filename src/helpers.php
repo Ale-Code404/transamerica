@@ -4,6 +4,7 @@ use Pecee\SimpleRouter\SimpleRouter as Router;
 use Pecee\Http\Url;
 use Pecee\Http\Response;
 use Pecee\Http\Request;
+use Transamerica\Services\App;
 use Transamerica\Services\Auth;
 
 /**
@@ -30,10 +31,16 @@ function view(string $view, array $data = [])
         'mensajes' => $_SESSION['mensajes'] ?? [],
         'errores' => $_SESSION['errores'] ?? []
     ];
-
+    // Incluir los errores de forma global
     $errores = $session['errores'] ?? [];
 
+    // Incluir la sesión de usuario
     $usuario = Auth::user();
+
+    // Incluir la configuración de la aplicación
+    $app = [
+        'ambiente' => App::envName()
+    ];
 
     // Incluir la vista
     include_once $path;

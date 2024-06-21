@@ -12,7 +12,9 @@ class Auth implements IMiddleware
         $tiempoLimite = 60 * 30;
 
         // Cargar la sesion activa
-        session_start();
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
 
         // Si no existe un usuario en la sesion retornar al login
         $tieneUsuario = isset($_SESSION['user']);

@@ -49,7 +49,10 @@ class Auth
 
     public function logout(): void
     {
-        session_start();
-        session_destroy();
+        // Verificar si la sesión existe
+        if (session_status() === PHP_SESSION_ACTIVE) {
+            // Eliminar la sesión
+            session_destroy();
+        }
     }
 }
