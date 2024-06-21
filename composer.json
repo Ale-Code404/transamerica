@@ -1,0 +1,21 @@
+{
+    "name": "transmision-datos-2/transamerica",
+    "autoload": {
+        "psr-4": {
+            "Transamerica\\": "src/",
+            "Transamerica\\Models\\": "src/models",
+            "Transamerica\\Controllers\\": "src/controllers",
+            "Transamerica\\Services\\": "src/services",
+            "Transamerica\\Middlewares\\": "src/middlewares"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "authors": [],
+    "require": {
+        "vlucas/phpdotenv": "^5.6",
+        "pecee/simple-router": "5.4.1.7",
+        "aws/aws-sdk-php": "^3.314"
+    }
+}
